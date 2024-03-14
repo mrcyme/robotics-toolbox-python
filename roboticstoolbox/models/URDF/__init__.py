@@ -50,4 +50,5 @@ __all__ = [
     "FetchCamera",
     "Valkyrie",
     "AL5D",
+    "Lite6"
 ]
