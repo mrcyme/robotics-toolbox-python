@@ -2,7 +2,7 @@
 # """
 # @author Jesse Haviland
 # """
-
+# %%
 import swift
 import roboticstoolbox as rtb
 import numpy as np
@@ -57,3 +57,5 @@ while True:
     env.step(0)
 
     time.sleep(0.01)
+
+# %%

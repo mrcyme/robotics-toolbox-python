@@ -4,6 +4,7 @@
 #
 # This is the code for the examples in the paper published at ICRA2021.
 #
+# %%
 
 from swift import Swift
 import spatialmath.base.symbolic as sym
@@ -178,3 +179,5 @@ backend.step()  # display the world
 
 
 #
+
+# %%

@@ -2,7 +2,7 @@
 """
 @author Jesse Haviland
 """
-
+# %%
 import swift
 import roboticstoolbox as rtb
 import spatialgeometry as sg
@@ -74,7 +74,7 @@ def step_robot(r: rtb.ERobot, Tep):
     ub = np.r_[r.qdlim[: r.n], 10 * np.ones(6)]
 
     # Solve for the joint velocities dq
-    qd = qp.solve_qp(Q, c, Ain, bin, Aeq, beq, lb=lb, ub=ub)
+    qd = qp.solve_qp(Q, c, Ain, bin, Aeq, beq, lb=lb, ub=ub, solver="quadprog")
     qd = qd[: r.n]
 
     if et > 0.5:
@@ -122,3 +122,5 @@ while not arrived:
     frankie.q[:3] = 0
 
 env.hold()
+
+# %%

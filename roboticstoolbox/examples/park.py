@@ -2,7 +2,7 @@
 """
 @author Jesse Haviland
 """
-
+# %%
 import swift
 import roboticstoolbox as rtb
 import spatialmath as sm
@@ -69,3 +69,5 @@ while not arrived:
 
     # Step the simulator by 50 ms
     env.step(0.05)
+
+# %%

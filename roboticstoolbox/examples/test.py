@@ -1,3 +1,4 @@
+# %%
 import numpy as np
 import roboticstoolbox as rtb
 import spatialmath as sm
@@ -23,3 +24,5 @@ Tep = panda.eval([0, -0.3, 0, -2.2, 0, 2.0, np.pi / 4])
 solver = rtb.IK_QP()
 
 sol = panda.ik_LM(Tep, tol=tol, q0=q0, method="chan")
+
+# %%

@@ -2,6 +2,7 @@
 """
 @author Jesse Haviland
 """
+# %%
 
 import swift
 import roboticstoolbox as rp
@@ -76,3 +77,5 @@ env.add(wx250s)
 
 # env.add(j2n4s300)
 env.hold()
+
+# %%

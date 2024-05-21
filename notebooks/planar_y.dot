@@ -1,0 +1,20 @@
+digraph G {
+graph [rankdir=LR];
+  BASE [shape=square, style=filled, fillcolor=gray]
+  link0 [shape="circle"];
+  BASE -> link0 [label="Rz(q0)", arrowhead="normal"];
+  link1 [shape="circle"];
+  link0 -> link1 [label="tx(1) ⊕ Rz(q1)", arrowhead="normal"];
+  link2a [shape="circle"];
+  link1 -> link2a [label="tx(1) ⊕ Rz(q2)", arrowhead="normal"];
+  link3a [shape="circle"];
+  link2a -> link3a [label="tx(1) ⊕ Rz(q3)", arrowhead="normal"];
+  link2b [shape="circle"];
+  link1 -> link2b [label="tx(1) ⊕ Rz(q4)", arrowhead="normal"];
+  link3b [shape="circle"];
+  link2b -> link3b [label="tx(1) ⊕ Rz(q5)", arrowhead="normal"];
+  eea [shape="doublecircle", color="blue", fontcolor="blue"];
+  link3a -> eea [label="tz(1)", arrowhead="normal"fontcolor="blue"];
+  eeb [shape="doublecircle", color="blue", fontcolor="blue"];
+  link3b -> eeb [label="tz(1)", arrowhead="normal"fontcolor="blue"];
+}

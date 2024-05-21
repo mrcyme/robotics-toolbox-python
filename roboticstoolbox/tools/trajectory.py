@@ -10,6 +10,7 @@ from spatialmath.base.argcheck import (
     getvector,
     isscalar,
 )
+from spatialmath import SE3
 
 
 class Trajectory:
@@ -779,7 +780,7 @@ def jtraj(q0, qf, t, qd0=None, qd1=None):
 # -------------------------------------------------------------------------- #
 
 
-def ctraj(T0, T1, t=None, s=None):
+def ctraj(T0, T1, t=None, s=None, tcp_offset=SE3()):
     """
     Cartesian trajectory between two poses
 
@@ -791,7 +792,10 @@ def ctraj(T0, T1, t=None, s=None):
     :type t: int or ndarray(n)
     :param s: array of distance along the path, in the interval [0, 1]
     :type s: ndarray(s)
-    :return T0: smooth path from ``T0`` to ``T1``
+    :param tcp_offset: end-effector offset transformation
+    :type tcp_offset: SE3, optional
+    :default tcp_offset: identity SE3 matrix
+    :return T0: smooth path from ``T0`` to ``T1`` with optional offset
     :rtype: SE3
 
     ``ctraj(T0, T1, n)`` is a Cartesian trajectory from SE3 pose ``T0`` to
@@ -837,7 +841,9 @@ def ctraj(T0, T1, t=None, s=None):
     else:
         raise TypeError("bad argument for time, must be int or vector")
 
-    return T0.interp(T1, s)
+    T_offset = T0.interp(T1, s) * tcp_offset
+
+    return T_offset
 
 
 def cmstraj():

@@ -10,6 +10,7 @@ over red hand, is the corresponding eigenvalue.  The eigenvalue will be
 negative if the hands are anti-parallel.
 
 """
+# %%
 import sys
 import numpy as np
 import matplotlib.pyplot as plt
@@ -102,3 +103,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+# %%

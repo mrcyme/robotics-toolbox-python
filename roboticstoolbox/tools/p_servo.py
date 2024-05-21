@@ -103,3 +103,61 @@ def p_servo(
     arrived = True if np.sum(np.abs(e)) < threshold else False
 
     return v, arrived
+
+def pid_servo(wTe, wTep, prev_error, integral_error, dt, gains, threshold=0.1, method="rpy"):
+    """
+    Position-based servoing with PID control.
+
+    :param wTe: Current pose of the end-effector in the base frame.
+    :type wTe: SE3 or ndarray
+    :param wTep: Desired pose of the end-effector in the base frame.
+    :type wTep: SE3 or ndarray
+    :param prev_error: Previous error in pose from last control step.
+    :type prev_error: ndarray
+    :param integral_error: Accumulated integral error.
+    :type integral_error: ndarray
+    :param dt: Time interval between the current and the previous control step.
+    :type dt: float
+    :param gains: Tuple of gains for PID controller (Kp, Ki, Kd).
+    :type gains: tuple
+    :param threshold: Tolerance of the final error between robot's pose and desired pose.
+    :type threshold: float
+    :param method: Method used to calculate the error (default 'rpy' uses roll-pitch-yaw).
+    :type method: str
+
+    :returns: Tuple containing the calculated velocity and a boolean indicating if the target has been reached.
+    :rtype: (ndarray, bool)
+    """
+
+    if isinstance(wTe, SE3):
+        wTe = wTe.A
+
+    if isinstance(wTep, SE3):
+        wTep = wTep.A
+
+    if method == "rpy":
+        eTep = np.linalg.inv(wTe) @ wTep
+        error = np.empty(6)
+        error[:3] = eTep[:3, -1]
+        error[3:] = base.tr2rpy(eTep, unit="rad", order="zyx", check=False)
+    else:
+        error = angle_axis(wTe, wTep)
+
+    Kp, Ki, Kd = gains
+    if np.isscalar(Kp):
+        Kp = Kp * np.eye(6)
+        Ki = Ki * np.eye(6)
+        Kd = Kd * np.eye(6)
+
+    # Update integral and derivative errors
+    integral_error += error * dt
+    derivative_error = (error - prev_error) / dt
+
+    # Calculate control command
+    v = Kp @ error + Ki @ integral_error + Kd @ derivative_error
+
+    # Check if arrived within threshold
+    arrived = np.linalg.norm(error) < threshold
+
+    return v, arrived, error, integral_error
+

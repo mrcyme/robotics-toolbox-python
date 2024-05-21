@@ -2,6 +2,7 @@
 """
 @author Jesse Haviland
 """
+# %%
 
 import swift
 import roboticstoolbox as rp
@@ -29,3 +30,5 @@ while not arrived:
 
 # Uncomment to stop the browser tab from closing
 # env.hold()
+
+# %%

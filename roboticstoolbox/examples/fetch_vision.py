@@ -2,7 +2,7 @@
 """
 @author Kerry He and Rhys Newbury
 """
-
+# %%
 import swift
 import spatialgeometry as sg
 import roboticstoolbox as rtb
@@ -223,3 +223,5 @@ arrived = False
 while not arrived:
     arrived = step()
     env.step(0.01)
+
+# %%

@@ -3,6 +3,7 @@
 @author Jesse Haviland
 """
 
+# %%
 import swift
 import roboticstoolbox as rtb
 import spatialmath as sm
@@ -14,7 +15,6 @@ This is an implementation of the controller from:
 J. Haviland and P. Corke, “A purely-reactive manipulability-maximising
 motion controller,” arXiv preprint arXiv:2002.11901,2020.
 """
-
 # Launch the simulator Swift
 env = swift.Swift()
 env.launch()
@@ -90,10 +90,12 @@ while not arrived:
     ub = np.r_[panda.qdlim[:n], 10 * np.ones(6)]
 
     # Solve for the joint velocities dq
-    qd = qp.solve_qp(Q, c, Ain, bin, Aeq, beq, lb=lb, ub=ub)
+    qd = qp.solve_qp(Q, c, Ain, bin, Aeq, beq, lb=lb, ub=ub, solver="quadprog")
 
     # Apply the joint velocities to the Panda
     panda.qd[:n] = qd[:n]
 
     # Step the simulator by 50 ms
     env.step(0.05)
+
+# %%

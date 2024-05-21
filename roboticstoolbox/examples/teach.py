@@ -2,6 +2,7 @@
 """
 @author Jesse Haviland
 """
+# %%
 
 import roboticstoolbox as rtb
 
@@ -12,4 +13,6 @@ panda = rtb.models.DH.Panda()
 panda.q = panda.qr
 
 # Open a plot with the teach panel
-e = panda.teach()
+e = panda.teach(panda.qz)
+
+# %%

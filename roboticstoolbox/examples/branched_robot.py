@@ -2,7 +2,7 @@
 """
 @author Jesse Haviland
 """
-
+# %%
 import swift
 import roboticstoolbox as rtb
 import spatialmath as sm
@@ -78,3 +78,5 @@ while not arrivedl or not arrivedr:
     env.step(dt)
 
 env.hold()
+
+# %%

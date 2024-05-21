@@ -3,6 +3,7 @@
 @author Peter Corke
 @author Jesse Haviland
 """
+# %%
 import sys
 import swift
 from math import pi
@@ -37,7 +38,7 @@ env.add(plane)
 env.add(screw)
 
 
-twist_params = {'x':0, 'y': 0, 'R': 0, 'P':0, 'p': 0.1}
+twist_params = {'x':0, 'y': 0, 'R': 0, 'P':0, 'p': 0}
 twist = Twist3()
 
 def update_twist_param(value, key):
@@ -53,7 +54,7 @@ def update_twist():
     axis = SO3.Rx(twist_params['R']) @ SO3.Ry(twist_params['P'])
     point = [twist_params['x'], twist_params['y'], 0]
     twist = Twist3.UnitRevolute(axis.A[:, 2], point, twist_params['p'])
-
+    print(axis.A[:,2])
     update_screw_axis(axis, point)
     update_plane()
 
@@ -117,6 +118,7 @@ quit = swift.Button(lambda x: sys.exit(0), desc="Quit")
 label1 = swift.Label(desc="Twist parameters")
 label2 = swift.Label(desc="Twist application")
 
+
 env.add(label1)
 env.add(twist_x)
 env.add(twist_y)
@@ -135,3 +137,5 @@ env.add(quit)
 update_all_sliders()
 while True:
     env.step(0)
+
+# %%

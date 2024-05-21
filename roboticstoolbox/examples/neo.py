@@ -2,6 +2,7 @@
 """
 @author Jesse Haviland
 """
+# %%
 
 import swift
 import spatialgeometry as sg
@@ -143,3 +144,5 @@ def run():
 
 step()
 run()
+
+# %%

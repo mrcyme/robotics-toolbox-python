@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="lite6">
+  <xacro:include filename="lite6.urdf.xacro"/>
+  <xacro:include filename="lite_gripper_pen.urdf.xacro"/>
+  <xacro:uflite_gripper_urdf prefix="" attach_to="link_eef" rpy="0 0 0" xyz="0 0 0"/>
+ 
+</robot>

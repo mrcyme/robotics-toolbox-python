@@ -1,3 +1,4 @@
+# %%
 import roboticstoolbox as rtb
 from spatialmath import *  # lgtm [py/polluting-import]
 import argparse
@@ -49,3 +50,5 @@ else:
     raise ValueError("unknown backend")
 
 robot.plot(qt.q, backend=args.backend)
+
+# %%

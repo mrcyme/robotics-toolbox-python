@@ -2,7 +2,7 @@
 """
 @author John Skinner
 """
-
+# %%
 import swift
 import roboticstoolbox as rp
 import numpy as np
@@ -32,3 +32,5 @@ for previous, target in zip(poses[:-1], poses[1:]):
 
 # Uncomment to stop the browser tab from closing
 env.hold()
+
+# %%

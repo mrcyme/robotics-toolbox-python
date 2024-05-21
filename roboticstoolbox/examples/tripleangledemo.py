@@ -3,7 +3,7 @@
 @author Peter Corke
 @author Jesse Haviland
 """
-
+# %%
 import swift
 from math import pi
 import roboticstoolbox as rtb
@@ -234,3 +234,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# %%

@@ -1,3 +1,4 @@
+# %%
 # this is the example code from the t0p-level README..d
 from spatialmath import SE3
 import roboticstoolbox as rtb
@@ -35,3 +36,5 @@ for qk in qtraj.q:             # for each joint configuration on trajectory
 env.stop_recording()
 
 # ffmpeg -i panda2.webm -vf "scale=iw*.5:ih*.5" panda2.gif
+
+# %%

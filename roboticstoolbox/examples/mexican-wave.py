@@ -5,7 +5,7 @@
 """
 
 # A circle of Puma robot's doing a Mexican wave
-
+# %%
 import numpy as np
 from spatialmath import SE3
 import roboticstoolbox as rtb
@@ -51,3 +51,5 @@ while True:
         time.sleep(0.001)
 
     t += 1
+
+# %%
