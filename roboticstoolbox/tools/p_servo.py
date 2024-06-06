@@ -42,11 +42,11 @@ def angle_axis_python(T, Td):
     return e
 
 
-def p_servo(
+def cp_servo(
     wTe, wTep, gain: Union[float, ArrayLike] = 1.0, threshold=0.1, method="rpy"
 ):
     """
-    Position-based servoing.
+    Cartesian position-based servoing.
 
     Returns the end-effector velocity which will cause the robot to approach
     the desired pose.
@@ -103,6 +103,40 @@ def p_servo(
     arrived = True if np.sum(np.abs(e)) < threshold else False
 
     return v, arrived
+
+def jp_servo(q, q_dest, gain: Union[float, ArrayLike] = 1.0, threshold=0.1):
+    """
+    joint space position-based servoing.
+
+    Returns the joint velocities which will cause the robot to approach the desired joint positions.
+    
+    :param q: The current joint positions of the robot.
+    :type q: ndarray
+    :param qd: The desired joint positions of the robot.
+    :type qd: ndarray
+    :param gain: The gain for the controller. Can be a scalar or a vector corresponding to each joint.
+    :type gain: float, or array-like
+    :param threshold: The threshold or tolerance of the final error between the robot's joint positions and desired joint positions.
+    :type threshold: float
+    :returns qdd: The joint velocities which will cause the robot to approach qd.
+    :rtype qdd: ndarray(n)
+    :returns arrived: True if the robot is within the threshold of the final joint positions.
+    :rtype arrived: bool
+    """
+    # Joint position error
+    e = q_dest - q
+    
+    if base.isscalar(gain):
+        k = gain * np.eye(len(q))
+    else:
+        k = np.diag(gain)
+    
+    # Joint velocities
+    qdd = k @ e
+    
+    arrived = True if np.sum(np.abs(e)) < threshold else False
+    
+    return qdd, arrived
 
 def pid_servo(wTe, wTep, prev_error, integral_error, dt, gains, threshold=0.1, method="rpy"):
     """
