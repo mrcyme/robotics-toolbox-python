@@ -31,16 +31,10 @@ class Lite6(Robot):
     """
 
     def __init__(self):
-<<<<<<< HEAD
         filepath = "ufactory_description/lite6/urdf/lite6_with_gripper_pen.urdf.xacro"
         #filepath = "ufactory_description/lite6/urdf/lite6.urdf.xacro"
         links, name, urdf_string, urdf_filepath = self.URDF_read(
             filepath
-=======
-
-        links, name, urdf_string, urdf_filepath = self.URDF_read(
-            "ufactory_description/lite6/urdf/lite6.urdf.xacro"
->>>>>>> 4bf4fb8374a265acb672dc4db23ea6605a847c7c
         )
 
         super().__init__(
@@ -48,26 +42,15 @@ class Lite6(Robot):
             name=name,
             manufacturer="Ufactory",
             urdf_string=urdf_string,
-<<<<<<< HEAD
             gripper_links=links[8],
             urdf_filepath=urdf_filepath,
         )
         self.grippers[0].tool = SE3(0, 0, 0.15)
-=======
-            urdf_filepath=urdf_filepath,
-        )
-
-
->>>>>>> 4bf4fb8374a265acb672dc4db23ea6605a847c7c
         self.qdlim = np.array(
             [2.1750, 2.1750, 2.1750, 2.1750, 2.6100, 2.6100, 2.6100, 3.0, 3.0]
         )
 
-<<<<<<< HEAD
         self.qr = np.array([0, -0.6, 1, 0, 1, -1])
-=======
-        self.qr = np.array([0, -0.3, 0, -2.2, 0, 2.0])
->>>>>>> 4bf4fb8374a265acb672dc4db23ea6605a847c7c
         self.qz = np.zeros(6)
 
         self.addconfiguration("qr", self.qr)
