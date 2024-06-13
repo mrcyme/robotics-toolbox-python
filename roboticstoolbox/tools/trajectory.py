@@ -780,7 +780,7 @@ def jtraj(q0, qf, t, qd0=None, qd1=None):
 # -------------------------------------------------------------------------- #
 
 
-def ctraj(T0, T1, t=None, s=None, tcp_offset=SE3()):
+def ctraj(T0, T1, t=None, s=None):
     """
     Cartesian trajectory between two poses
 
@@ -792,10 +792,7 @@ def ctraj(T0, T1, t=None, s=None, tcp_offset=SE3()):
     :type t: int or ndarray(n)
     :param s: array of distance along the path, in the interval [0, 1]
     :type s: ndarray(s)
-    :param tcp_offset: end-effector offset transformation
-    :type tcp_offset: SE3, optional
-    :default tcp_offset: identity SE3 matrix
-    :return T0: smooth path from ``T0`` to ``T1`` with optional offset
+    :return T0: smooth path from ``T0`` to ``T1``
     :rtype: SE3
 
     ``ctraj(T0, T1, n)`` is a Cartesian trajectory from SE3 pose ``T0`` to
@@ -841,9 +838,7 @@ def ctraj(T0, T1, t=None, s=None, tcp_offset=SE3()):
     else:
         raise TypeError("bad argument for time, must be int or vector")
 
-    T_offset = T0.interp(T1, s) * tcp_offset
-
-    return T_offset
+    return T0.interp(T1, s)
 
 
 def cmstraj():
