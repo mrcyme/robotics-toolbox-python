@@ -69,8 +69,8 @@ gain = np.array([1, 1, 1, 1.6, 1.6, 1.6])
 
 while not arrivedl or not arrivedr:
 
-    vl, arrivedl = rtb.p_servo(la.fkine(r.q), lTep, gain=gain, threshold=0.001)
-    vr, arrivedr = rtb.p_servo(ra.fkine(r.q), rTep, gain=gain, threshold=0.001)
+    vl, arrivedl = rtb.cp_servo(la.fkine(r.q), lTep, gain=gain, threshold=0.001)
+    vr, arrivedr = rtb.cp_servo(ra.fkine(r.q), rTep, gain=gain, threshold=0.001)
 
     r.qd[la.jindices] = np.linalg.pinv(la.jacobe(r.q)) @ vl
     r.qd[ra.jindices] = np.linalg.pinv(ra.jacobe(r.q)) @ vr

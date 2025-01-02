@@ -31,7 +31,7 @@ class Lite6(Robot):
     """
 
     def __init__(self):
-        filepath = "ufactory_description/lite6/urdf/lite6_with_gripper_pen.urdf.xacro"
+        filepath = "ufactory_description/lite6/urdf/lite6_with_gripper.urdf.xacro"
         #filepath = "ufactory_description/lite6/urdf/lite6.urdf.xacro"
         links, name, urdf_string, urdf_filepath = self.URDF_read(
             filepath
@@ -45,7 +45,7 @@ class Lite6(Robot):
             gripper_links=links[8],
             urdf_filepath=urdf_filepath,
         )
-        self.grippers[0].tool = SE3(0, 0, 0.15)
+        self.grippers[0].tool = SE3(0, 0, 0.8)
         self.qdlim = np.array(
             [2.1750, 2.1750, 2.1750, 2.1750, 2.6100, 2.6100, 2.6100, 3.0, 3.0]
         )

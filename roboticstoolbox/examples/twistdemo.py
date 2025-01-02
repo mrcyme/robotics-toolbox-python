@@ -53,6 +53,10 @@ def update_twist():
 
     axis = SO3.Rx(twist_params['R']) @ SO3.Ry(twist_params['P'])
     point = [twist_params['x'], twist_params['y'], 0]
+    print(axis)
+    print(axis.A[:, 2])
+    print(point)
+    print(twist_params['p'])
     twist = Twist3.UnitRevolute(axis.A[:, 2], point, twist_params['p'])
     print(axis.A[:,2])
     update_screw_axis(axis, point)

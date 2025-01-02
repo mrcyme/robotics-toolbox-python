@@ -37,7 +37,7 @@
           xyz="0 0 0"
           rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://ufactory_description/lite6/meshes/visual/base.glb"/>
+          <mesh filename="package://ufactory_description/lite6/meshes/visual/base.stl"/>
         </geometry>
         <material name="${prefix}White" />
       </visual>
@@ -46,7 +46,7 @@
           xyz="0 0 0"
           rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://ufactory_description/lite6/meshes/visual/base.glb"/>
+          <mesh filename="package://ufactory_description/lite6/meshes/visual/base.stl"/>
         </geometry>
       </collision>
     </link>
@@ -70,7 +70,7 @@
           xyz="0 0 0"
           rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://ufactory_description/lite6/meshes/visual/link1.glb"/>
+          <mesh filename="package://ufactory_description/lite6/meshes/visual/link1.stl"/>
         </geometry>
         <material name="${prefix}White" />
       </visual>
@@ -79,7 +79,7 @@
           xyz="0 0 0"
           rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://ufactory_description/lite6/meshes/visual/link1.glb"/>
+          <mesh filename="package://ufactory_description/lite6/meshes/visual/link1.stl"/>
         </geometry>
       </collision>
     </link>
@@ -120,7 +120,7 @@
           xyz="0 0 0"
           rpy="0 0 0" />
         <geometry>
-           <mesh filename="package://ufactory_description/lite6/meshes/visual/link2.glb"/>
+           <mesh filename="package://ufactory_description/lite6/meshes/visual/link2.stl"/>
         </geometry>
         <material name="${prefix}White" />
       </visual>
@@ -129,7 +129,7 @@
           xyz="0 0 0"
           rpy="0 0 0" />
         <geometry>
-           <mesh filename="package://ufactory_description/lite6/meshes/visual/link2.glb"/>
+           <mesh filename="package://ufactory_description/lite6/meshes/visual/link2.stl"/>
         </geometry>
       </collision>
     </link>
@@ -170,7 +170,7 @@
           xyz="0 0 0"
           rpy="0 0 0" />
         <geometry>
-           <mesh filename="package://ufactory_description/lite6/meshes/visual/link3.glb"/>
+           <mesh filename="package://ufactory_description/lite6/meshes/visual/link3.stl"/>
         </geometry>
         <material name="${prefix}White" />
       </visual>
@@ -179,7 +179,7 @@
           xyz="0 0 0"
           rpy="0 0 0" />
         <geometry>
-           <mesh filename="package://ufactory_description/lite6/meshes/visual/link3.glb"/>
+           <mesh filename="package://ufactory_description/lite6/meshes/visual/link3.stl"/>
         </geometry>
       </collision>
     </link>
@@ -220,7 +220,7 @@
           xyz="0 0 0"
           rpy="0 0 0" />
         <geometry>
-           <mesh filename="package://ufactory_description/lite6/meshes/visual/link4.glb"/>
+           <mesh filename="package://ufactory_description/lite6/meshes/visual/link4.stl"/>
         </geometry>
         <material name="${prefix}White" />
       </visual>
@@ -229,7 +229,7 @@
           xyz="0 0 0"
           rpy="0 0 0" />
         <geometry>
-           <mesh filename="package://ufactory_description/lite6/meshes/visual/link4.glb"/>
+           <mesh filename="package://ufactory_description/lite6/meshes/visual/link4.stl"/>
         </geometry>
       </collision>
     </link>
@@ -270,7 +270,7 @@
           xyz="0 0 0"
           rpy="0 0 0" />
         <geometry>
-           <mesh filename="package://ufactory_description/lite6/meshes/visual/link5.glb"/>
+           <mesh filename="package://ufactory_description/lite6/meshes/visual/link5.stl"/>
         </geometry>
         <material name="${prefix}White" />
       </visual>
@@ -279,7 +279,7 @@
           xyz="0 0 0"
           rpy="0 0 0" />
         <geometry>
-           <mesh filename="package://ufactory_description/lite6/meshes/visual/link5.glb"/>
+           <mesh filename="package://ufactory_description/lite6/meshes/visual/link5.stl"/>
         </geometry>
       </collision>
     </link>
@@ -320,7 +320,7 @@
           xyz="0 0 0"
           rpy="0 0 0" />
         <geometry>
-           <mesh filename="package://ufactory_description/lite6/meshes/visual/link6.glb"/>
+           <mesh filename="package://ufactory_description/lite6/meshes/visual/link6.stl"/>
         </geometry>
         <material name="${prefix}Silver" />
       </visual>
@@ -329,7 +329,7 @@
           xyz="0 0 0"
           rpy="0 0 0" />
         <geometry>
-           <mesh filename="package://ufactory_description/lite6/meshes/visual/link6.glb"/>
+           <mesh filename="package://ufactory_description/lite6/meshes/visual/link6.stl"/>
         </geometry>
       </collision>
     </link>

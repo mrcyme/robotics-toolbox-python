@@ -488,13 +488,11 @@ class IKSolver(ABC):
         True if joints within feasible limits otherwise False
 
         """
-
         # Loop through the joints in the ETS
         for i in range(ets.n):
             # Get the corresponding joint limits
             ql0 = ets.qlim[0, i]
             ql1 = ets.qlim[1, i]
-
             # Check if q exceeds the limits
             if q[i] < ql0 or q[i] > ql1:
                 return False
